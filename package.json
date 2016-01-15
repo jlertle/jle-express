@@ -1,0 +1,43 @@
+{
+  "name": "jle-express",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "start-dev": "nodemon ./bin/www",
+    "test": "node test | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlertle/jle-express.git"
+  },
+  "author": "Jason Lee Ertle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlertle/jle-express/issues"
+  },
+  "homepage": "https://github.com/jlertle/jle-express#readme",
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "browserify-middleware": "^7.0.0",
+    "caminte": "^0.2.6",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "dotenv": "^1.2.0",
+    "express": "~4.13.1",
+    "helmet": "^1.1.0",
+    "http-status": "^0.2.0",
+    "jade": "~1.11.0",
+    "mithril": "^0.2.0",
+    "mongoose": "^4.3.5",
+    "morgan": "~1.6.1",
+    "ratelimit-middleware": "^1.2.0",
+    "redis": "^2.4.2",
+    "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "supertest": "^1.1.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.4.0"
+  }
+}
