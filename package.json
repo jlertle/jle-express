@@ -1,6 +1,6 @@
 {
   "name": "jle-express",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
@@ -36,14 +36,14 @@
     "dev": "npm run open:dev -s && parallelshell \"npm run live-reload -s\" \"npm run serve -s\" \"npm run watch -s\"",
     "-preversion": "npm test",
     "--preversion": "git add -A && git commit -m 'auto commit'",
-    "-version": "npm run build && git add -A",
+    "---preversion": "npm run build && git add -A",
     "postversion": "git push && git push --tags",
     "-postversion": "git push && git push --tags && rm -rf build/temp",
-    "precommit": "npm run build && git add -A && git commit -m 'auto build commit'",
+    "--precommit": "npm run build && git add -A && git commit -m 'auto build commit'",
     "-precommit": "npm run build && git add -A",
-    "commit": "npm version patch -m \"Bumped to %s\"",
-    "commit-minor": "npm version minor -m 'Bumped to %s'",
-    "commit-major": "npm version major -m 'Bumped to %s'"
+    "commit": "npm version patch -m \"Bumped to %s\" --force",
+    "commit-minor": "npm version minor -m 'Bumped to %s' --force",
+    "commit-major": "npm version major -m 'Bumped to %s' --force"
   },
   "repository": {
     "type": "git",
