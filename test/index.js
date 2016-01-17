@@ -12,7 +12,13 @@ if (fs.existsSync(envFile)) {
   console.error('No .env file found');
 }
 
-var test = require('tape');
+require('leaked-handles').set({
+    fullStack: true, // use full stack traces
+    timeout: 5000, // 30000 run every 30 seconds instead of 5.
+    debugSockets: true // pretty print tcp thrown exceptions.
+});
+
+var tape = require('tape');
 var request = require('supertest');
 var app = require('../server/app');
 
@@ -20,11 +26,11 @@ var testList = {'name': 'test','items': ['testerosa','testaburger','testala']};
 var testList2 = {'name': 'test','items': ['testerosa','testaburger','testalalala']};
 var testList3 = {'name': 'test'};
 
-test('a test test!', function(t) {
-  t.end();
-});
+// test('a test test!', function(t) {
+//   t.end();
+// });
 
-test('post a list', function(t) {
+tape('post a list', function(t) {
   request(app)
     .post('/lists')
     .type('json')
@@ -40,7 +46,7 @@ test('post a list', function(t) {
     });
 });
 
-test('lists returned', function(t) {
+tape('lists returned', function(t) {
   request(app)
     .get('/lists')
     .expect('Content-Type', /json/)
@@ -51,7 +57,7 @@ test('lists returned', function(t) {
     });
 });
 
-test('correct list returned', function(t) {
+tape('correct list returned', function(t) {
   request(app)
     .get('/lists/test')
     .expect('Content-Type', /json/)
@@ -64,7 +70,7 @@ test('correct list returned', function(t) {
     });
 });
 
-test('update a list', function(t) {
+tape('update a list', function(t) {
   request(app)
     .put('/lists/test')
     .type('json')
@@ -79,7 +85,7 @@ test('update a list', function(t) {
     });
 });
 
-test('updated list returned', function(t) {
+tape('updated list returned', function(t) {
   request(app)
     .get('/lists/test')
     .expect('Content-Type', /json/)
@@ -92,7 +98,7 @@ test('updated list returned', function(t) {
     });
 });
 
-test('delete a list', function(t) {
+tape('delete a list', function(t) {
   request(app)
     .delete('/lists/test')
     .expect('Content-Type', /json/)
@@ -104,7 +110,7 @@ test('delete a list', function(t) {
     });
 });
 
-test('post a bad list', function(t) {
+tape('post a bad list', function(t) {
   request(app)
     .post('/lists')
     .type('json')
@@ -118,7 +124,7 @@ test('post a bad list', function(t) {
     });
 });
 
-test('delete a bad name', function(t) {
+tape('delete a bad name', function(t) {
   request(app)
     .delete('/lists/test')
     .expect('Content-Type', /json/)
@@ -130,7 +136,7 @@ test('delete a bad name', function(t) {
     });
 });
 
-test('get a bad name', function(t) {
+tape('get a bad name', function(t) {
   request(app)
     .get('/lists/test')
     .expect('Content-Type', /json/)
@@ -141,3 +147,5 @@ test('get a bad name', function(t) {
       t.end();
     });
 });
+
+process.exit(1);
