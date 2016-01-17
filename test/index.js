@@ -148,6 +148,7 @@ tape('get a bad name', function(t) {
     });
 });
 
-tape('SUMMARY', function () {
+tape('SUMMARY', function (t) {
+  t.end();
   process.exit(0);
 });
