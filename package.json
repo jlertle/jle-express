@@ -1,6 +1,6 @@
 {
   "name": "jle-express",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "private": true,
   "main": "./bin/www",
   "scripts": {
@@ -43,12 +43,15 @@
     "commit": "npm version patch -m \"Bumped to %s\" --force",
     "commit-minor": "npm version minor -m 'Bumped to %s' --force",
     "commit-major": "npm version major -m 'Bumped to %s' --force",
+    "cov": "npm run cov:clean && npm run cov:generate",
+    "cov:clean": "rimraf coverage",
+    "cov:generate": "istanbul cover --report text --report html test/index.js",
     "validate": "npm run lint && npm run build && npm test",
     "validate-dev": "npm run lint && npm run build && npm test | faucet",
     "audit": "nsp check --warn-only",
     "deps": "npm run deps:missing && npm run deps:extra",
     "deps:missing": "dependency-check package.json",
-    "deps:extra": "dependency-check package.json --extra --no-dev --ignore",
+    "deps:extra": "dependency-check package.json --extra --no-dev --ignore -i jade -i mithril -i mongoose -i redis",
     "precheck": "npm run validate",
     "check": "npm run audit && npm run deps && npm outdated --depth 0"
   },
@@ -84,6 +87,7 @@
     "browserify": "^13.0.0",
     "hashmark": "^3.1.0",
     "http-server": "^0.8.5",
+    "istanbul": "^0.4.2",
     "leaked-handles": "^5.2.0",
     "live-reload": "^1.1.0",
     "minifyify": "^7.1.0",
