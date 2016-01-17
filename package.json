@@ -1,11 +1,61 @@
 {
   "name": "jle-express",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
     "start-dev": "nodemon ./bin/www",
-    "test": "node test | tap-spec"
+
+    "test": "node test | tap-spec",
+    "env": "env",
+
+    "-preinstall": "mkdir -p node_modules && ln -f -s ../client node_modules/client",
+    "-install": "mkdir -p node_modules && ln -f -s ../server node_modules/server",
+    "postinstall": "cp sample.config.js config.js && cp sample.env .env",
+
+    "lint": "jshint *.js",
+    "clean": "rimraf dist/*",
+
+    "prebuild": "npm run clean -s",
+    "build": "npm run build:scripts -s && npm run build:styles -s && npm run build:markup -s",
+    "build-verbose": "npm run build:scripts && npm run build:styles && npm run build:markup",
+    "build:scripts": "browserify -d client/js/app.js -p [minifyify --compressPath . --map main.js.map --output dist/main.js.map] | hashmark -n dist/main.js -s -l 8 -m assets.json 'dist/{name}.{hash}{ext}'",
+    "build:styles": "stylus -u autoprefixer-stylus client/css/main.styl --include-css --compress -m -o dist/main.css && hashmark -s -l 8 -m assets.json dist/main.css 'dist/{name}.{hash}{ext}'",
+    "build:styles-compressed": "stylus -u autoprefixer-stylus client/css/main.styl --include-css --compress -m -o dist/main.css && cssmin dist/main.css > dist/main.min.css && hashmark -s -l 8 -m assets.json dist/main.min.css 'dist/{name}.{hash}{ext}'",
+    "build:markup": "jade server/views/index.jade --obj assets.json -o dist",
+
+    "-prebuild:js": "npm run lint",
+    "-build:css": "autoprefixer -b 'last 2 versions' < assets/styles/main.css | cssmin > dist/main.css",
+    "-build:js": "browserify assets/scripts/main.js > dist/main.js",
+    "-build": "npm run build:css && npm run build:js",
+
+    "watch": "parallelshell \"npm run watch:test -s\" \"npm run watch:build -s\"",
+    "watch:test": "karma start",
+    "watch:build": "nodemon -q -w assets/ --ext '.' --exec 'npm run build'",
+
+    "open:prod": "opener http://example.com",
+    "open:stage": "opener http://staging.example.internal",
+    "open:dev": "opener http://localhost:9090",
+
+    "deploy:prod": "s3-cli sync ./dist/ s3://example-com/prod-site/",
+    "deploy:stage": "s3-cli sync ./dist/ s3://example-com/stage-site/",
+
+    "serve": "http-server -p 9090 dist/",
+    "live-reload": "live-reload --port 9091 dist/",
+
+    "dev": "npm run open:dev -s && parallelshell \"npm run live-reload -s\" \"npm run serve -s\" \"npm run watch -s\"",
+
+    "-preversion": "npm test",
+    "--preversion": "git add -A && git commit -m \"Bumped to %s\"",
+    "-version": "npm run build && git add -A",
+    "---version": "git add -A && git commit",
+    "postversion": "git push && git push --tags",
+    "-postversion": "git push && git push --tags && rm -rf build/temp",
+
+    "precommit": "git add -A && git commit -m \"Bumped to %s\"",
+    "commit": "npm version patch -m \"Bumped to %s\"",
+    "commit-minor": "npm version minor -m 'Bumped to %s'",
+    "commit-major": "npm version major -m 'Bumped to %s'"
   },
   "repository": {
     "type": "git",
@@ -36,6 +86,15 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
+    "browserify": "^13.0.0",
+    "hashmark": "^3.1.0",
+    "http-server": "^0.8.5",
+    "live-reload": "^1.1.0",
+    "minifyify": "^7.1.0",
+    "opener": "^1.4.1",
+    "parallelshell": "^2.0.0",
+    "rimraf": "^2.5.0",
+    "stylus": "^0.53.0",
     "supertest": "^1.1.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.4.0"
