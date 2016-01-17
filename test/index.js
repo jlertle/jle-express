@@ -143,7 +143,7 @@ tape('get a bad name', function(t) {
     .expect(200)
     .end(function(err, res) {
       t.error(err, 'No error');
-      t.same(res.body, 'entry not found', 'entry not found as expected');
+      t.same(res.body, 'entry not foundasd', 'entry not found as expected');
       t.end();
     });
 });
