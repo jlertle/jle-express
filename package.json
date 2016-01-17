@@ -37,11 +37,10 @@
     "-preversion": "npm test",
     "--preversion": "git add -A && git commit -m 'auto commit'",
     "-version": "npm run build && git add -A",
-    "---version": "git add -A && git commit",
     "postversion": "git push && git push --tags",
     "-postversion": "git push && git push --tags && rm -rf build/temp",
-    "precommit": "git add -A && git commit -m 'auto commit'",
-    "commit": "npm version patch -m \"Bumped to %s\"",
+    "precommit": "npm run build && git add -A && git commit -m 'auto build commit'",
+    "commit": "npm run build && npm version patch -m \"Bumped to %s\"",
     "commit-minor": "npm version minor -m 'Bumped to %s'",
     "commit-major": "npm version major -m 'Bumped to %s'"
   },
