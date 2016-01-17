@@ -133,4 +133,21 @@ app.use(function(err, req, res, next) {
 });
 
 
+
+console.log('RUNNING IN ' + app.get('env') + ' MODE');
+
+/*-- For system restarts/shutdowns we may want to run some cleaup/logging code --*/
+process.on('SIGTERM', function() {
+  app.close(function() {
+    console.log('Closed out remaining connections.');
+    // Close db connections, etc.
+    process.exit(0);
+  });
+
+  setTimeout(function() {
+    console.error('Could not close connections in time, forcefully shutting down');
+    process.exit(1);
+  }, 30 * 1000);
+});
+
 module.exports = app;

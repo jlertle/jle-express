@@ -12,11 +12,11 @@ if (fs.existsSync(envFile)) {
   console.error('No .env file found');
 }
 
-require('leaked-handles').set({
-    fullStack: true, // use full stack traces
-    timeout: 5000, // 30000 run every 30 seconds instead of 5.
-    debugSockets: true // pretty print tcp thrown exceptions.
-});
+// require('leaked-handles').set({
+//     fullStack: true, // use full stack traces
+//     timeout: 5000, // 30000 runs every 30 seconds instead of 5.
+//     debugSockets: true // pretty print tcp thrown exceptions.
+// });
 
 var tape = require('tape');
 var request = require('supertest');
@@ -26,9 +26,14 @@ var testList = {'name': 'test','items': ['testerosa','testaburger','testala']};
 var testList2 = {'name': 'test','items': ['testerosa','testaburger','testalalala']};
 var testList3 = {'name': 'test'};
 
-// test('a test test!', function(t) {
-//   t.end();
-// });
+tape('a test test!', function(t) {
+  t.end();
+});
+
+// console.dir(request);
+// console.log(module);
+// console.log(require.main);
+// console.log(require.main.filename);
 
 tape('post a list', function(t) {
   request(app)
