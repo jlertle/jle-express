@@ -20,6 +20,7 @@ An npm `scripts` boilerplate for modules intended for production.
   - [Customize the README.md file](#customize-the-readmemd-file)
   - [Build your module](#build-your-module)
 - [Contributing](#contributing)
+- [Third-party libraries](#third-party-libraries)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -103,3 +104,23 @@ You'll probably also want to replace the content of "Getting Started" & "Feature
 
 - [Contributing](docs/contributing/index.md)
   - [Versions: Release Names vs Version Numbers](docs/contributing/versions/index.md)
+
+## Third-party libraries
+  ---------------------
+
+  The following third-party libraries are used by this module:
+
+  * mithril: https://github.com/lhorie/mithril - Client-Side Framework for Building Brilliant Applications
+  * express: https://github.com/visionmedia/express - Fast, unopinionated, minimalist web framework
+  * caminte: https://github.com/biggora/caminte - Cross-DB ORM for Node
+  * nsp: https://github.com/nodesecurity/nsp - helps identify known vulnerabilities
+  * helmet: https://github.com/helmetjs/helmet - helps secure Express by setting various HTTP headers
+  * ratelimit-middleware: https://github.com/defunctzombie/ratelimit-middleware - limit connections
+  * browserify-middleware: https://github.com/ForbesLindesay/browserify-middleware - to browserify the stuffs
+  * istanbul-middleware: https://github.com/gotwarlost/istanbul-middleware - code coverage numbers
+  * browserify: https://github.com/substack/node-browserify - browser-side require() the node.js way
+  * supertest: https://github.com/visionmedia/supertest - HTTP assertions made easy
+  * tape: https://github.com/substack/tape - tap-producing test harness for node and browsers
+  * istanbul: https://github.com/gotwarlost/istanbul - code coverage tool
+  * dependency-check: https://github.com/maxogden/dependency-check - checks modules used are listed in package.json
+  * rimraf: https://github.com/isaacs/rimraf - dev dependency for tests
