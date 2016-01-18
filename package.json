@@ -1,6 +1,6 @@
 {
   "name": "jle-express",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "private": true,
   "main": "./bin/www",
   "scripts": {
@@ -95,6 +95,7 @@
     "http-server": "^0.8.5",
     "istanbul": "^0.4.2",
     "istanbul-middleware": "^0.2.2",
+    "jscs": "^2.8.0",
     "jshint": "^2.9.1",
     "leaked-handles": "^5.2.0",
     "live-reload": "^1.1.0",

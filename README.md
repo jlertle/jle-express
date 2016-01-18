@@ -2,10 +2,17 @@
 [![Travis-CI](https://travis-ci.org/jlertle/jle-express.svg)](https://travis-ci.org/jlertle/jle-express)
 [![Dependency Status](https://gemnasium.com/jlertle/jle-express.svg)](https://gemnasium.com/jlertle/jle-express)
 [![Coverage Status](https://coveralls.io/repos/jlertle/jle-express/badge.svg?branch=master&service=github)](https://coveralls.io/github/jlertle/jle-express?branch=master)
+
 [![bitHound Overall Score](https://www.bithound.io/github/jlertle/jle-express/badges/score.svg)](https://www.bithound.io/github/jlertle/jle-express)
 [![bitHound Code](https://www.bithound.io/github/jlertle/jle-express/badges/code.svg)](https://www.bithound.io/github/jlertle/jle-express)
 
-Project Template for Express
+[![Code Climate](https://codeclimate.com/github/jlertle/jle-express/badges/gpa.svg)](https://codeclimate.com/github/jlertle/jle-express)
+[![Issue Count](https://codeclimate.com/github/jlertle/jle-express/badges/issue_count.svg)](https://codeclimate.com/github/jlertle/jle-express)
+[![Test Coverage](https://codeclimate.com/github/jlertle/jle-express/badges/coverage.svg)](https://codeclimate.com/github/jlertle/jle-express/coverage)
+
+
+Project Template for Mithril, Express, Caminte
+
 An npm `scripts` boilerplate for modules intended for production.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -106,13 +113,13 @@ You'll probably also want to replace the content of "Getting Started" & "Feature
   - [Versions: Release Names vs Version Numbers](docs/contributing/versions/index.md)
 
 ## Third-party libraries
-  ---------------------
 
   The following third-party libraries are used by this module:
 
   * mithril: https://github.com/lhorie/mithril - Client-Side Framework for Building Brilliant Applications
   * express: https://github.com/visionmedia/express - Fast, unopinionated, minimalist web framework
   * caminte: https://github.com/biggora/caminte - Cross-DB ORM for Node
+  * stylus: https://github.com/stylus/stylus - expressive, dynamic, robust css
   * nsp: https://github.com/nodesecurity/nsp - helps identify known vulnerabilities
   * helmet: https://github.com/helmetjs/helmet - helps secure Express by setting various HTTP headers
   * ratelimit-middleware: https://github.com/defunctzombie/ratelimit-middleware - limit connections
@@ -124,3 +131,6 @@ You'll probably also want to replace the content of "Getting Started" & "Feature
   * istanbul: https://github.com/gotwarlost/istanbul - code coverage tool
   * dependency-check: https://github.com/maxogden/dependency-check - checks modules used are listed in package.json
   * rimraf: https://github.com/isaacs/rimraf - dev dependency for tests
+  * doctoc: https://github.com/thlorenz/doctoc - generates table of contents for markdown
+  * jshint: https://github.com/jshint/jshint - detect errors and potential problems in JavaScript
+  * jscs: https://github.com/jscs-dev/node-jscs - JavaScript Code Style checker
