@@ -1,6 +1,9 @@
-# jle-express [![Circle CI](https://circleci.com/gh/cloverfield-tools/prod-module-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/cloverfield-tools/prod-module-boilerplate/tree/master)
-[![Travis-CI](https://travis-ci.org/cloverfield-tools/prod-module-boilerplate.svg)](https://travis-ci.org/cloverfield-tools/prod-module-boilerplate)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/learn-javascript-courses/javascript-questions?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+# jle-express [![Circle CI](https://circleci.com/gh/jlertle/jle-express/tree/master.svg?style=svg)](https://circleci.com/gh/jlertle/jle-express/tree/master)
+[![Travis-CI](https://travis-ci.org/jlertle/jle-express.svg)](https://travis-ci.org/jlertle/jle-express)
+[![Dependency Status](https://gemnasium.com/jlertle/jle-express.svg)](https://gemnasium.com/jlertle/jle-express)
+[![Coverage Status](https://coveralls.io/repos/jlertle/jle-express/badge.svg?branch=master&service=github)](https://coveralls.io/github/jlertle/jle-express?branch=master)
+[![bitHound Overall Score](https://www.bithound.io/github/jlertle/jle-express/badges/score.svg)](https://www.bithound.io/github/jlertle/jle-express)
+[![bitHound Code](https://www.bithound.io/github/jlertle/jle-express/badges/code.svg)](https://www.bithound.io/github/jlertle/jle-express)
 
 Project Template for Express
 An npm `scripts` boilerplate for modules intended for production.
@@ -38,7 +41,7 @@ An npm `scripts` boilerplate for modules intended for production.
 In a bash terminal:
 
 ```
-git clone git@github.com:cloverfield-tools/prod-module-boilerplate.git <your-new-repo-name>
+git clone git@github.com:jlertle/jle-express.git <your-new-repo-name>
 cd <your-repo-name>
 rm -rf <.git> # strip the boilerplate .git config
 git init # create your own .git config
@@ -61,7 +64,7 @@ This package comes with a `.travis.yml` file. You'll need to replace it with you
 Pop open README.md. Find this text:
 
 ```
-[![Travis-CI](https://travis-ci.org/cloverfield-tools/prod-module-boilerplate.svg)](https://travis-ci.org/cloverfield-tools/prod-module-boilerplate)
+[![Travis-CI](https://travis-ci.org/jlertle/jle-express.svg)](https://travis-ci.org/jlertle/jle-express)
 ```
 
 And replace it with your info:
@@ -92,7 +95,7 @@ You'll probably also want to replace the content of "Getting Started" & "Feature
 
   This will run the `webpack` build in watch mode and will include ESLint checks on compile time.
 
-  ![webpack](https://cloud.githubusercontent.com/assets/175264/8304834/d66f7944-19ec-11e5-9feb-9f66caa5c593.gif)
+  <!-- ![webpack](https://cloud.githubusercontent.com/assets/175264/8304834/d66f7944-19ec-11e5-9feb-9f66caa5c593.gif) -->
 
   **Note** minified version will not be built in dev mode.
 
