@@ -1,5 +1,6 @@
 'use strict';
 
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -7,6 +8,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// https://github.com/ForbesLindesay/browserify-middleware
 var browserify = require('browserify-middleware');
 
 // helps secure Express by setting various HTTP headers
@@ -16,6 +18,19 @@ var helmet = require('helmet');
 // limit connections
 // https://github.com/defunctzombie/ratelimit-middleware
 var ratelimit = require('ratelimit-middleware');
+
+// https://github.com/gotwarlost/istanbul-middleware
+var im = require('istanbul-middleware');
+var isCoverageDisabled = (process.env.NODE_ENV === 'production');
+
+//before your code is require()-ed, hook the loader for coverage
+if (!isCoverageDisabled) {
+    console.log('Hook loader for coverage - ensure this is not production!');
+    //console.log(path.join(__dirname, '..'));
+    im.hookLoader(path.join(__dirname, '..'));
+        // cover all files except under node_modules
+        // see API for other options
+}
 
 // default jade stuff
 // var routes = require('./routes/index');
@@ -35,7 +50,15 @@ app.use(ratelimit({
   rate: 0.5, // Steady state: 1 request / 2 seconds
   ip: true,
   overrides: {
+    '::1': {
+      burst: 0,
+      rate: 0 // unlimited
+    },
     '192.168.1.1': {
+      burst: 0,
+      rate: 0 // unlimited
+    },
+    '192.168.2.1/24': {
       burst: 0,
       rate: 0 // unlimited
     },
@@ -59,6 +82,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(pubDir));
+//app.use(express.static(covDir));
 
 // default jade stuff
 // app.use('/', routes);
@@ -66,6 +90,7 @@ app.use(express.static(pubDir));
 
 // Add model to req so it's accessible in routers
 app.use(function(req, res, next) {
+  //console.log('IP', req.headers['x-forwarded-for'] || req.connection.remoteAddress);
   req.model = listModel;
   next();
 });
@@ -95,6 +120,13 @@ app.use('/', v2); // if no version then use most recent
 
 // browserify js files, cached if NODE_ENV=production
 app.get('/app.js', browserify(path.join(pubDir, 'js', 'app.js'), {}));
+
+// add the coverage handler
+if (!isCoverageDisabled) {
+    //enable coverage endpoints under /coverage
+    //var covDir = path.join(__dirname, '../coverage');
+    app.use('/coverage', im.createHandler());
+}
 
 // could implement server-side parsing for initial page-load
 app.get('/*', function(req, res) {
@@ -131,8 +163,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-
 
 console.log('RUNNING IN ' + app.get('env') + ' MODE');
 
