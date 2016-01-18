@@ -1,6 +1,6 @@
 {
   "name": "jle-express",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "private": true,
   "main": "./bin/www",
   "scripts": {
@@ -86,6 +86,7 @@
   "devDependencies": {
     "autoprefixer-stylus": "^0.8.1",
     "browserify": "^13.0.0",
+    "dependency-check": "^2.5.1",
     "hashmark": "^3.1.0",
     "http-server": "^0.8.5",
     "istanbul": "^0.4.2",
