@@ -5,15 +5,19 @@
 
 [![bitHound Overall Score](https://www.bithound.io/github/jlertle/jle-express/badges/score.svg)](https://www.bithound.io/github/jlertle/jle-express)
 [![bitHound Code](https://www.bithound.io/github/jlertle/jle-express/badges/code.svg)](https://www.bithound.io/github/jlertle/jle-express)
+[![Inline docs](http://inch-ci.org/github/jlertle/jle-express.svg?branch=master)](http://inch-ci.org/github/jlertle/jle-express)
 
 [![Code Climate](https://codeclimate.com/github/jlertle/jle-express/badges/gpa.svg)](https://codeclimate.com/github/jlertle/jle-express)
 [![Issue Count](https://codeclimate.com/github/jlertle/jle-express/badges/issue_count.svg)](https://codeclimate.com/github/jlertle/jle-express)
 [![Test Coverage](https://codeclimate.com/github/jlertle/jle-express/badges/coverage.svg)](https://codeclimate.com/github/jlertle/jle-express/coverage)
 
+<!-- [![Build status](https://ci.appveyor.com/api/projects/status/pkey0tj2q28u6vr4?svg=true)](https://ci.appveyor.com/project/jlertle/jle-express) -->
 
-Project Template for Mithril, Express, Caminte
+**WORK IN PROGRESS**
 
-An npm `scripts` boilerplate for modules intended for production.
+Project Template for Express, Mithril, Caminte, Covered (testing/security)
+
+Includes a few npm `scripts` [(no gulp or grunt needed)](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool).
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -28,14 +32,16 @@ An npm `scripts` boilerplate for modules intended for production.
   - [Build your module](#build-your-module)
 - [Contributing](#contributing)
 - [Third-party libraries](#third-party-libraries)
+- [Inspiration](#inspiration)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Features
 
 * ES6 with Babel
-* Lint with ESLint
+* Lint with JSHint
 * Tape tests with coverage report
+* Safer security defaults
 * Dependency security audits with nsp
 * Ensure dependencies are properly declared in package.json
 * Git precommit hook enforces quality checks on commit
@@ -46,7 +52,7 @@ An npm `scripts` boilerplate for modules intended for production.
 
 ### Clone the repo
 
-In a bash terminal:
+In your terminal:
 
 ```
 git clone git@github.com:jlertle/jle-express.git <your-new-repo-name>
@@ -134,3 +140,9 @@ You'll probably also want to replace the content of "Getting Started" & "Feature
   * doctoc: https://github.com/thlorenz/doctoc - generates table of contents for markdown
   * jshint: https://github.com/jshint/jshint - detect errors and potential problems in JavaScript
   * jscs: https://github.com/jscs-dev/node-jscs - JavaScript Code Style checker
+
+## Inspiration
+  http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/
+  https://medium.com/javascript-scene/why-i-use-tape-instead-of-mocha-so-should-you-6aa105d8eaf4
+  https://github.com/cloverfield-tools/prod-module-boilerplate
+  https://blog.risingstack.com/node-js-security-checklist/
