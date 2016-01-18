@@ -142,7 +142,7 @@ You'll probably also want to replace the content of "Getting Started" & "Feature
   * jscs: https://github.com/jscs-dev/node-jscs - JavaScript Code Style checker
 
 ## Inspiration
-  http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/
-  https://medium.com/javascript-scene/why-i-use-tape-instead-of-mocha-so-should-you-6aa105d8eaf4
-  https://github.com/cloverfield-tools/prod-module-boilerplate
-  https://blog.risingstack.com/node-js-security-checklist/
+  * http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/
+  * https://medium.com/javascript-scene/why-i-use-tape-instead-of-mocha-so-should-you-6aa105d8eaf4
+  * https://github.com/cloverfield-tools/prod-module-boilerplate
+  * https://blog.risingstack.com/node-js-security-checklist/
