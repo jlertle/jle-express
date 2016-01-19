@@ -17,7 +17,7 @@ winston.handleExceptions(new winston.transports.File({
   filename: 'path/to/uncaughtExceptions.log'
 }));
 
-winston.log('info', "Hello World from Node.js!");
+//winston.log('info', "Hello World from Node.js!");
 
 /*
 Winston log levels
