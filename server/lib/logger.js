@@ -6,16 +6,18 @@ require('winston-loggly');
 winston.exitOnError = true;
 
 winston.add(winston.transports.Loggly, {
-    token: process.env.LOGGLY_TOKEN,
-    subdomain: process.env.LOGGLY_SUBDOMAIN,
-    tags: ["Winston-NodeJS"],
-    json:true
+  token: process.env.LOGGLY_TOKEN,
+  subdomain: process.env.LOGGLY_SUBDOMAIN,
+  tags: ["Winston-NodeJS"],
+  json: true
 });
 
 // ? local file useful if network is lost ?
-winston.handleExceptions(new winston.transports.File({ filename: 'path/to/uncaughtExceptions.log' }));
+winston.handleExceptions(new winston.transports.File({
+  filename: 'path/to/uncaughtExceptions.log'
+}));
 
-winston.log('info',"Hello World from Node.js!");
+winston.log('info', "Hello World from Node.js!");
 
 /*
 Winston log levels
@@ -29,24 +31,28 @@ error
 silent
 */
 
-var transports = [
-  new winston.transports.Console({
-    json: true,
-    colorize: true,
-    level: 'silly',
-    prettyPrint: true,
-    timestamp: true
-  }),
-  new winston.transports.Loggly({
-    token: process.env.LOGGLY_TOKEN,
-    subdomain: process.env.LOGGLY_SUBDOMAIN,
-    json: true,
-    tags: ["NodeJS"],
-    level: 'silly',
-    prettyPrint: true,
-    timestamp: true
-  })
-];
+var transportConsole = new winston.transports.Console({
+  json: true,
+  colorize: true,
+  level: 'silly',
+  prettyPrint: true,
+  timestamp: true
+});
+var transportLoggly = new winston.transports.Loggly({
+  token: process.env.LOGGLY_TOKEN,
+  subdomain: process.env.LOGGLY_SUBDOMAIN,
+  json: true,
+  tags: ["NodeJS"],
+  level: 'silly',
+  prettyPrint: true,
+  timestamp: true
+});
+
+var transports = [transportConsole];
+
+if (process.env.NODE_ENV === 'production') {
+  transports.push(transportLoggly);
+}
 
 exports.logger = expressWinston.logger({
   transports: transports
