@@ -1,6 +1,24 @@
 #!/usr/bin/env node
 'use strict';
 
+
+// load .env file as soon as possible
+var path = require('path');
+var fs = require('fs');
+var dotenv = require('dotenv');
+
+var envFile = path.join(__dirname, '..', '.env');
+
+console.log(envFile);
+
+if (fs.existsSync(envFile)) {
+  dotenv.load();
+  //console.log(process.env);
+} else {
+  console.error('No .env file found');
+}
+
+
 /**
  * Module dependencies.
  */
@@ -8,17 +26,6 @@
 var app = require('../server/app');
 var debug = require('debug')('jle-express:server');
 var http = require('http');
-var path = require('path');
-var fs = require('fs');
-var dotenv = require('dotenv');
-
-var envFile = path.join(__dirname, '..', '.env');
-
-if (fs.existsSync(envFile)) {
-  dotenv.load();
-} else {
-  console.error('No .env file found');
-}
 
 
 /**

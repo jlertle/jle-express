@@ -9,7 +9,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 // setup logging
-var log = require('../logConfig');
+var log = require('./lib/logger');
 
 // https://github.com/ForbesLindesay/browserify-middleware
 var browserify = require('browserify-middleware');
