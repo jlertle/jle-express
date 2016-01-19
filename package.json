@@ -1,6 +1,6 @@
 {
   "name": "jle-express",
-  "version": "0.1.24",
+  "version": "0.1.25",
   "private": true,
   "main": "./bin/www",
   "scripts": {
@@ -33,7 +33,7 @@
     "open:dev": "opener http://localhost:9090",
     "deploy:prod": "s3-cli sync ./dist/ s3://example-com/prod-site/",
     "deploy:stage": "s3-cli sync ./dist/ s3://example-com/stage-site/",
-    "serve": "http-server -p 9090 dist/",
+    "serve": "npm start",
     "live-reload": "live-reload --port 9091 dist/",
     "dev": "npm run open:dev -s && parallelshell \"npm run live-reload -s\" \"npm run serve -s\" \"npm run watch -s\"",
     "preversion": "npm test",
@@ -92,7 +92,6 @@
     "doctoc": "^0.15.0",
     "faucet": "0.0.1",
     "hashmark": "^3.1.0",
-    "http-server": "^0.8.5",
     "istanbul": "^0.4.2",
     "istanbul-middleware": "^0.2.2",
     "jscs": "^2.8.0",
