@@ -8,6 +8,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// setup logging
+var log = require('../logConfig');
+
 // https://github.com/ForbesLindesay/browserify-middleware
 var browserify = require('browserify-middleware');
 
@@ -76,10 +79,14 @@ app.set('view engine', 'jade');
 // uncomment after placing your favicon in /client
 //app.use(favicon(path.join(__dirname, 'client', 'favicon.ico')));
 app.use(logger('dev'));
+
+// configure app to use bodyParser()
+// this will let us get the data from a POST
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+
 app.use(cookieParser());
 app.use(express.static(pubDir));
 //app.use(express.static(covDir));
@@ -95,9 +102,14 @@ app.use(function(req, res, next) {
   next();
 });
 
+
+
 // API version routing.
 var v1 = express.Router();
 var v2 = express.Router();
+
+// Place the express-winston logger before the router.
+app.use(log.logger);
 
 v1.use('/lists', express.Router()
   .post('*', listRouteV1.createList)
@@ -141,6 +153,9 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
+
+// Place the express-winston errorLogger after the router.
+app.use(log.errorLogger);
 
 // development error handler
 // will print stacktrace

@@ -1,4 +1,8 @@
-# jle-express [![Circle CI](https://circleci.com/gh/jlertle/jle-express/tree/master.svg?style=svg)](https://circleci.com/gh/jlertle/jle-express/tree/master)
+# jle-express
+
+[![Circle CI](https://circleci.com/gh/jlertle/jle-express/tree/master.svg?style=svg)](https://circleci.com/gh/jlertle/jle-express/tree/master)
+[![Build Status](https://semaphoreci.com/api/v1/projects/31b09efe-863c-4583-bb0f-f08d8c9a01a9/666153/badge.svg)](https://semaphoreci.com/jlertle/jle-express)
+
 [![Travis-CI](https://travis-ci.org/jlertle/jle-express.svg)](https://travis-ci.org/jlertle/jle-express)
 [![Dependency Status](https://gemnasium.com/jlertle/jle-express.svg)](https://gemnasium.com/jlertle/jle-express)
 [![Coverage Status](https://coveralls.io/repos/jlertle/jle-express/badge.svg?branch=master&service=github)](https://coveralls.io/github/jlertle/jle-express?branch=master)
@@ -126,20 +130,27 @@ You'll probably also want to replace the content of "Getting Started" & "Feature
   * express: https://github.com/visionmedia/express - Fast, unopinionated, minimalist web framework
   * caminte: https://github.com/biggora/caminte - Cross-DB ORM for Node
   * stylus: https://github.com/stylus/stylus - expressive, dynamic, robust css
+
   * nsp: https://github.com/nodesecurity/nsp - helps identify known vulnerabilities
   * helmet: https://github.com/helmetjs/helmet - helps secure Express by setting various HTTP headers
   * ratelimit-middleware: https://github.com/defunctzombie/ratelimit-middleware - limit connections
+
   * browserify-middleware: https://github.com/ForbesLindesay/browserify-middleware - to browserify the stuffs
   * istanbul-middleware: https://github.com/gotwarlost/istanbul-middleware - code coverage numbers
   * browserify: https://github.com/substack/node-browserify - browser-side require() the node.js way
   * supertest: https://github.com/visionmedia/supertest - HTTP assertions made easy
   * tape: https://github.com/substack/tape - tap-producing test harness for node and browsers
   * istanbul: https://github.com/gotwarlost/istanbul - code coverage tool
+
   * dependency-check: https://github.com/maxogden/dependency-check - checks modules used are listed in package.json
   * rimraf: https://github.com/isaacs/rimraf - dev dependency for tests
   * doctoc: https://github.com/thlorenz/doctoc - generates table of contents for markdown
   * jshint: https://github.com/jshint/jshint - detect errors and potential problems in JavaScript
   * jscs: https://github.com/jscs-dev/node-jscs - JavaScript Code Style checker
+
+  * winston: https://github.com/winstonjs/winston - multi-transport async logging
+  * express-winston: https://github.com/bithavoc/express-winston - express middleware for winston
+  * winston-loggly: https://github.com/winstonjs/winston-loggly - Loggly transport for winston
 
 ## Inspiration
   * http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/

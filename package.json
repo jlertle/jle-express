@@ -1,11 +1,11 @@
 {
   "name": "jle-express",
-  "version": "0.1.25",
+  "version": "0.1.26",
   "private": true,
   "main": "./bin/www",
   "scripts": {
     "start": "export NODE_ENV=production && node ./bin/www",
-    "start-dev": "export NODE_ENV=development && nodemon ./bin/www",
+    "start-dev": "export NODE_ENV=development && parallelshell \"node-inspector --no-debug-brk ./bin/www\" \"nodemon --debug ./bin/www\"",
     "test": "export NODE_ENV=test && node test | tap-spec",
     "env": "env",
     "-preinstall": "mkdir -p node_modules && ln -f -s ../client node_modules/client",
@@ -74,15 +74,19 @@
     "debug": "~2.2.0",
     "dotenv": "^1.2.0",
     "express": "^4.13.1",
+    "express-winston": "^1.2.0",
     "helmet": "^1.1.0",
     "http-status": "^0.2.0",
     "jade": "~1.11.0",
     "mithril": "^0.2.0",
     "mongoose": "^4.3.5",
     "morgan": "~1.6.1",
+    "node-inspector": "^0.12.5",
     "ratelimit-middleware": "^1.2.0",
     "redis": "^2.4.2",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "winston": "^2.1.1",
+    "winston-loggly": "^1.2.0"
   },
   "devDependencies": {
     "autoprefixer-stylus": "^0.8.1",
