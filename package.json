@@ -1,6 +1,6 @@
 {
   "name": "jle-express",
-  "version": "0.1.31",
+  "version": "0.1.32",
   "private": true,
   "main": "./bin/www",
   "scripts": {
@@ -15,7 +15,7 @@
     "clean": "rimraf dist/*",
     "prebuild": "npm run clean -s",
     "build": "export NODE_ENV=production && npm run build:scripts -s && npm run build:styles -s && npm run build:markup -s && npm run build:doc",
-    "build:doc": "doctoc --github --title \"## Contents\" ./",
+    "build:doc": "doctoc --github --title \"## Contents\" .",
     "build-verbose": "npm run build:scripts && npm run build:styles && npm run build:markup",
     "build:scripts": "browserify -d client/js/app.js -p [minifyify --compressPath . --map main.js.map --output dist/main.js.map] | hashmark -n dist/main.js -s -l 8 -m assets.json 'dist/{name}.{hash}{ext}'",
     "build:styles": "stylus -u autoprefixer-stylus client/css/main.styl --include-css --compress -m -o dist/main.css && hashmark -s -l 8 -m assets.json dist/main.css 'dist/{name}.{hash}{ext}'",
