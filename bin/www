@@ -9,7 +9,7 @@ var dotenv = require('dotenv');
 
 var envFile = path.join(__dirname, '..', '.env');
 
-console.log(envFile);
+//console.log(envFile);
 
 if (fs.existsSync(envFile)) {
   dotenv.load();

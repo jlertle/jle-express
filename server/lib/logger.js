@@ -38,19 +38,20 @@ var transportConsole = new winston.transports.Console({
   prettyPrint: true,
   timestamp: true
 });
-var transportLoggly = new winston.transports.Loggly({
-  token: process.env.LOGGLY_TOKEN,
-  subdomain: process.env.LOGGLY_SUBDOMAIN,
-  json: true,
-  tags: ["NodeJS"],
-  level: 'silly',
-  prettyPrint: true,
-  timestamp: true
-});
 
 var transports = [transportConsole];
 
 if (process.env.NODE_ENV === 'production') {
+  var transportLoggly = new winston.transports.Loggly({
+    token: process.env.LOGGLY_TOKEN,
+    subdomain: process.env.LOGGLY_SUBDOMAIN,
+    json: true,
+    tags: ["NodeJS"],
+    level: 'silly',
+    prettyPrint: true,
+    timestamp: true
+  });
+
   transports.push(transportLoggly);
 }
 

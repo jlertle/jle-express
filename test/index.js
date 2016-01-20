@@ -9,7 +9,7 @@ var envFile = path.join(__dirname, '..', '.env');
 if (fs.existsSync(envFile)) {
   dotenv.load();
 } else {
-  console.error('No .env file found');
+  console.log('No .env file found');
 }
 
 // require('leaked-handles').set({
