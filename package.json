@@ -69,6 +69,8 @@
   "dependencies": {
     "body-parser": "^1.14.2",
     "browserify-middleware": "^7.0.0",
+    "bunyan": "^1.5.1",
+    "bunyan-loggly": "0.0.5",
     "caminte": "^0.2.6",
     "cookie-parser": "^1.4.1",
     "debug": "~2.2.0",
