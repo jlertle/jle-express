@@ -1,0 +1,43 @@
+fail_on_violations: true
+
+javascript:
+  enabled: true
+  config_file: .jshintrc
+  ignore_file: .jshintignore
+
+jscs:
+  enabled: true
+  config_file: .jscsrc
+
+eslint:
+  enabled: false
+  config_file: .eslintrc
+
+coffeescript:
+  enabled: false
+  config_file: .coffeescript-style.json
+
+scss:
+  enabled: false
+  config_file: .scss-style.yml
+  exclude:
+    - "app/assets/stylesheets/plugins/**"
+
+haml:
+  enabled: false
+  config_file: .haml-style.yml
+
+go:
+  enabled: false
+
+ruby:
+  enabled: false
+  config_file: .ruby-style.yml
+
+python:
+  enabled: false
+  config_file: .flake8.ini
+
+swift:
+  enabled: false
+  config_file: .swiftlint.yml

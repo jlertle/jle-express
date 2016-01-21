@@ -19,7 +19,7 @@
 
 **WORK IN PROGRESS**
 
-Project Template for Express, Mithril, Caminte, Covered (testing/security)
+Project Template for Express, Mithril, Caminte with Coverage (testing/security)
 
 Includes a few npm `scripts` [(no gulp or grunt needed)](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool).
 
