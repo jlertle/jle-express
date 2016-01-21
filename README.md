@@ -50,6 +50,7 @@ Includes a few npm `scripts` [(no gulp or grunt needed)](http://blog.keithcirkel
 * Ensure dependencies are properly declared in package.json
 * Git precommit hook enforces quality checks on commit
 * Travis CI integration
+* Production logging with Loggly and Winston
 
 
 ## Getting Started
