@@ -1,6 +1,6 @@
 {
   "name": "jle-express",
-  "version": "0.1.35",
+  "version": "0.1.36",
   "private": true,
   "main": "./bin/www",
   "scripts": {
@@ -21,6 +21,7 @@
     "build:styles": "stylus -u autoprefixer-stylus client/css/main.styl --include-css --compress -m -o dist/main.css && hashmark -s -l 8 -m assets.json dist/main.css 'dist/{name}.{hash}{ext}'",
     "build:styles-compressed": "stylus -u autoprefixer-stylus client/css/main.styl --include-css --compress -m -o dist/main.css && cssmin dist/main.css > dist/main.min.css && hashmark -s -l 8 -m assets.json dist/main.min.css 'dist/{name}.{hash}{ext}'",
     "build:markup": "jade server/views/index.jade --obj assets.json -o dist",
+    "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
     "-prebuild:js": "npm run lint",
     "-build:css": "autoprefixer -b 'last 2 versions' < assets/styles/main.css | cssmin > dist/main.css",
     "-build:js": "browserify assets/scripts/main.js > dist/main.js",
@@ -100,9 +101,11 @@
     "istanbul": "^0.4.2",
     "istanbul-middleware": "^0.2.2",
     "jscs": "^2.8.0",
+    "jsdoc": "^3.4.0",
     "jshint": "^2.9.1",
     "leaked-handles": "^5.2.0",
     "live-reload": "^1.1.0",
+    "minami": "^1.1.1",
     "minifyify": "^7.1.0",
     "node-inspector": "^0.12.5",
     "nsp": "^2.2.0",

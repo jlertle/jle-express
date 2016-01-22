@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="readme">
+        <article><h1>jle-express</h1><p><a href="https://circleci.com/gh/jlertle/jle-express/tree/master"><img src="https://circleci.com/gh/jlertle/jle-express/tree/master.svg?style=svg" alt="Circle CI"></a>
+<a href="https://semaphoreci.com/jlertle/jle-express"><img src="https://semaphoreci.com/api/v1/projects/31b09efe-863c-4583-bb0f-f08d8c9a01a9/666153/badge.svg" alt="Build Status"></a></p>
+<p><a href="https://travis-ci.org/jlertle/jle-express"><img src="https://travis-ci.org/jlertle/jle-express.svg" alt="Travis-CI"></a>
+<a href="https://gemnasium.com/jlertle/jle-express"><img src="https://gemnasium.com/jlertle/jle-express.svg" alt="Dependency Status"></a>
+<a href="https://coveralls.io/github/jlertle/jle-express?branch=master"><img src="https://coveralls.io/repos/jlertle/jle-express/badge.svg?branch=master&amp;service=github" alt="Coverage Status"></a></p>
+<p><a href="https://www.bithound.io/github/jlertle/jle-express"><img src="https://www.bithound.io/github/jlertle/jle-express/badges/score.svg" alt="bitHound Overall Score"></a>
+<a href="https://www.bithound.io/github/jlertle/jle-express"><img src="https://www.bithound.io/github/jlertle/jle-express/badges/code.svg" alt="bitHound Code"></a>
+<a href="http://inch-ci.org/github/jlertle/jle-express"><img src="http://inch-ci.org/github/jlertle/jle-express.svg?branch=master" alt="Inline docs"></a></p>
+<p><a href="https://codeclimate.com/github/jlertle/jle-express"><img src="https://codeclimate.com/github/jlertle/jle-express/badges/gpa.svg" alt="Code Climate"></a>
+<a href="https://codeclimate.com/github/jlertle/jle-express"><img src="https://codeclimate.com/github/jlertle/jle-express/badges/issue_count.svg" alt="Issue Count"></a>
+<a href="https://codeclimate.com/github/jlertle/jle-express/coverage"><img src="https://codeclimate.com/github/jlertle/jle-express/badges/coverage.svg" alt="Test Coverage"></a></p>
+<!-- [![Build status](https://ci.appveyor.com/api/projects/status/pkey0tj2q28u6vr4?svg=true)](https://ci.appveyor.com/project/jlertle/jle-express) -->
+<p><strong>WORK IN PROGRESS</strong></p>
+<p>Project Template for Express, Mithril, Caminte with Coverage (testing/security)</p>
+<p>Includes a few npm <code>scripts</code> <a href="http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool">(no gulp or grunt needed)</a>.</p>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<h2>Contents</h2><ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#getting-started">Getting Started</a><ul>
+<li><a href="#clone-the-repo">Clone the repo</a></li>
+<li><a href="#customize-packagejson">Customize package.json</a></li>
+<li><a href="#configure-your-ci-build">Configure your CI build</a></li>
+<li><a href="#customize-the-readmemd-file">Customize the README.md file</a></li>
+<li><a href="#build-your-module">Build your module</a></li>
+</ul>
+</li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#third-party-libraries">Third-party libraries</a></li>
+<li><a href="#inspiration">Inspiration</a></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<h2>Features</h2><ul>
+<li>ES6 with Babel</li>
+<li>Lint with JSHint</li>
+<li>Tape tests with coverage report</li>
+<li>Safer security defaults</li>
+<li>Dependency security audits with nsp</li>
+<li>Ensure dependencies are properly declared in package.json</li>
+<li>Git precommit hook enforces quality checks on commit</li>
+<li>Travis CI integration</li>
+<li>Production logging with Loggly and Winston</li>
+</ul>
+<h2>Getting Started</h2><h3>Clone the repo</h3><p>In your terminal:</p>
+<pre class="prettyprint source"><code>git clone git@github.com:jlertle/jle-express.git &lt;your-new-repo-name>
+cd &lt;your-repo-name>
+rm -rf &lt;.git> # strip the boilerplate .git config
+git init # create your own .git config
+git add .
+git commit -m 'Initial commit'</code></pre><h3>Customize package.json</h3><p>Open up <code>package.json</code>. At minimum, you'll need to customize the <code>name</code>, <code>description</code>, &amp; <code>version</code> fields.</p>
+<h3>Configure your CI build</h3><p>This package comes with a <code>.travis.yml</code> file. You'll need to replace it with your own build config. If you want to continue using TravisCI and you don't see any problems with the config, replacing <code>.travis.yml</code> is optional. You still need to activate <a href="http://docs.travis-ci.com/user/getting-started/">Travis CI for your repository</a>.</p>
+<h3>Customize the README.md file</h3><p>Pop open README.md. Find this text:</p>
+<pre class="prettyprint source"><code>[![Travis-CI](https://travis-ci.org/jlertle/jle-express.svg)](https://travis-ci.org/jlertle/jle-express)</code></pre><p>And replace it with your info:</p>
+<pre class="prettyprint source"><code>[![Travis-CI](https://travis-ci.org/&lt;your-github-name>/&lt;your-github-repo-name>.svg)](https://travis-ci.org/&lt;your-github-name>/&lt;your-github-repo-name>)</code></pre><p>You'll probably also want to replace the content of &quot;Getting Started&quot; &amp; &quot;Features&quot;, and ensure that you're refering to the correct repository in the &quot;Contributing&quot; document.</p>
+<h3>Build your module</h3><ol>
+<li><p>For production</p>
+<pre class="prettyprint source lang-sh"><code>npm run build</code></pre><p>It will run webpack once building full and minified versions of your library in <code>./build</code> with sourcemaps.</p>
+</li>
+</ol>
+<ol>
+<li><p>For development</p>
+<pre class="prettyprint source lang-sh"><code>npm start</code></pre><p>This will run the <code>webpack</code> build in watch mode and will include ESLint checks on compile time.</p>
+<!-- ![webpack](https://cloud.githubusercontent.com/assets/175264/8304834/d66f7944-19ec-11e5-9feb-9f66caa5c593.gif) -->
+<p><strong>Note</strong> minified version will not be built in dev mode.</p>
+</li>
+</ol>
+<h2>Contributing</h2><ul>
+<li><a href="docs/contributing/index.md">Contributing</a><ul>
+<li><a href="docs/contributing/versions/index.md">Versions: Release Names vs Version Numbers</a></li>
+</ul>
+</li>
+</ul>
+<h2>Third-party libraries</h2><p>  The following third-party libraries are used by this module:</p>
+<ul>
+<li>mithril: https://github.com/lhorie/mithril - Client-Side Framework for Building Brilliant Applications</li>
+<li>express: https://github.com/visionmedia/express - Fast, unopinionated, minimalist web framework</li>
+<li>caminte: https://github.com/biggora/caminte - Cross-DB ORM for Node</li>
+<li><p>stylus: https://github.com/stylus/stylus - expressive, dynamic, robust css</p>
+</li>
+<li><p>nsp: https://github.com/nodesecurity/nsp - helps identify known vulnerabilities</p>
+</li>
+<li>helmet: https://github.com/helmetjs/helmet - helps secure Express by setting various HTTP headers</li>
+<li><p>ratelimit-middleware: https://github.com/defunctzombie/ratelimit-middleware - limit connections</p>
+</li>
+<li><p>browserify-middleware: https://github.com/ForbesLindesay/browserify-middleware - to browserify the stuffs</p>
+</li>
+<li>istanbul-middleware: https://github.com/gotwarlost/istanbul-middleware - code coverage numbers</li>
+<li>browserify: https://github.com/substack/node-browserify - browser-side require() the node.js way</li>
+<li>supertest: https://github.com/visionmedia/supertest - HTTP assertions made easy</li>
+<li>tape: https://github.com/substack/tape - tap-producing test harness for node and browsers</li>
+<li><p>istanbul: https://github.com/gotwarlost/istanbul - code coverage tool</p>
+</li>
+<li><p>dependency-check: https://github.com/maxogden/dependency-check - checks modules used are listed in package.json</p>
+</li>
+<li>rimraf: https://github.com/isaacs/rimraf - dev dependency for tests</li>
+<li>doctoc: https://github.com/thlorenz/doctoc - generates table of contents for markdown</li>
+<li>jshint: https://github.com/jshint/jshint - detect errors and potential problems in JavaScript</li>
+<li><p>jscs: https://github.com/jscs-dev/node-jscs - JavaScript Code Style checker</p>
+</li>
+<li><p>winston: https://github.com/winstonjs/winston - multi-transport async logging</p>
+</li>
+<li>express-winston: https://github.com/bithavoc/express-winston - express middleware for winston</li>
+<li>winston-loggly: https://github.com/winstonjs/winston-loggly - Loggly transport for winston</li>
+</ul>
+<h2>Inspiration</h2><ul>
+<li>http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/</li>
+<li>https://medium.com/javascript-scene/why-i-use-tape-instead-of-mocha-so-should-you-6aa105d8eaf4</li>
+<li>https://github.com/cloverfield-tools/prod-module-boilerplate</li>
+<li>https://blog.risingstack.com/node-js-security-checklist/</li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Fri Jan 22 2016 10:09:05 GMT-0800 (PST) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
