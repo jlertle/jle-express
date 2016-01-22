@@ -1,6 +1,6 @@
 {
   "name": "jle-express",
-  "version": "0.1.37",
+  "version": "0.1.38",
   "private": true,
   "main": "./bin/www",
   "scripts": {
@@ -75,7 +75,7 @@
     "caminte": "^0.2.6",
     "cookie-parser": "^1.4.1",
     "debug": "~2.2.0",
-    "dotenv": "^1.2.0",
+    "dotenv": "^2.0.0",
     "express": "^4.13.1",
     "express-winston": "^1.2.0",
     "helmet": "^1.1.0",
@@ -91,7 +91,7 @@
     "winston-loggly": "^1.2.0"
   },
   "devDependencies": {
-    "autoprefixer-stylus": "^0.8.1",
+    "autoprefixer-stylus": "^0.9.1",
     "blue-tape": "^0.1.11",
     "browserify": "^13.0.0",
     "dependency-check": "^2.5.1",
