@@ -6,6 +6,13 @@ var httpStatus = require('http-status');
 
 var route = {};
 
+/**
+ * Description
+ * @method allLists
+ * @param {} req
+ * @param {} res
+ * @return 
+ */
 route.allLists = function(req, res) {
   req.model.db.list().then(function(result) {
     res.json(result);
@@ -15,6 +22,13 @@ route.allLists = function(req, res) {
   });
 };
 
+/**
+ * Description
+ * @method createListOLD
+ * @param {} req
+ * @param {} res
+ * @return 
+ */
 route.createListOLD = function(req, res) {
   var vName = req.body.name || null;
   var vItems = req.body.items || null;
@@ -37,6 +51,13 @@ route.createListOLD = function(req, res) {
   });
 };
 
+/**
+ * Description
+ * @method listCreator
+ * @param {} list
+ * @param {} req
+ * @return promise
+ */
 var listCreator = function(list, req) {
   var promise = new Promise(function(resolve, reject) {
     var vName = list.name || null;
@@ -66,6 +87,13 @@ var listCreator = function(list, req) {
   return promise;
 };
 
+/**
+ * Description
+ * @method createList
+ * @param {} req
+ * @param {} res
+ * @return 
+ */
 route.createList = function(req, res) {
   var lists = [];
   if (!Array.isArray(req.body)) {
@@ -87,6 +115,13 @@ route.createList = function(req, res) {
   });
 };
 
+/**
+ * Description
+ * @method updateList
+ * @param {} req
+ * @param {} res
+ * @return 
+ */
 route.updateList = function(req, res) {
   var vName = req.params.name;
   var vItems = req.body.items || null;
@@ -109,6 +144,13 @@ route.updateList = function(req, res) {
   });
 };
 
+/**
+ * Description
+ * @method deleteList
+ * @param {} req
+ * @param {} res
+ * @return 
+ */
 route.deleteList = function(req, res) {
   var query = {name: req.params.name};
 
@@ -121,6 +163,13 @@ route.deleteList = function(req, res) {
   });
 };
 
+/**
+ * Description
+ * @method retrieveList
+ * @param {} req
+ * @param {} res
+ * @return 
+ */
 route.retrieveList = function(req, res) {
   var query = {name: req.params.name};
 

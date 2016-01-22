@@ -4,6 +4,13 @@
 
 var route = {};
 
+/**
+ * Description
+ * @method allRetrieve
+ * @param {} req
+ * @param {} res
+ * @return 
+ */
 route.allRetrieve = function(req, res) {
   req.model.db.list().then(function(result) {
     res.json(result);
@@ -12,6 +19,13 @@ route.allRetrieve = function(req, res) {
   });
 };
 
+/**
+ * Description
+ * @method allDelete
+ * @param {} req
+ * @param {} res
+ * @return 
+ */
 route.allDelete = function(req, res) {
   req.model.db.clear().then(function(result) {
     res.json(result);
@@ -20,6 +34,13 @@ route.allDelete = function(req, res) {
   });
 };
 
+/**
+ * Description
+ * @method createList
+ * @param {} req
+ * @param {} res
+ * @return 
+ */
 route.createList = function(req, res) {
   var vName = req.body.name || null;
   var vItems = req.body.items || null;
@@ -40,6 +61,13 @@ route.createList = function(req, res) {
   });
 };
 
+/**
+ * Description
+ * @method updateList
+ * @param {} req
+ * @param {} res
+ * @return 
+ */
 route.updateList = function(req, res) {
   var vName = req.params.name;
   var vItems = req.body.items || null;
@@ -60,6 +88,13 @@ route.updateList = function(req, res) {
   });
 };
 
+/**
+ * Description
+ * @method deleteList
+ * @param {} req
+ * @param {} res
+ * @return 
+ */
 route.deleteList = function(req, res) {
   var query = {name: req.params.name};
 
@@ -70,6 +105,13 @@ route.deleteList = function(req, res) {
   });
 };
 
+/**
+ * Description
+ * @method retrieveList
+ * @param {} req
+ * @param {} res
+ * @return 
+ */
 route.retrieveList = function(req, res) {
   var query = {name: req.params.name};
 

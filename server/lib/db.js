@@ -2,8 +2,21 @@
 
 var tools = require('./tools');
 
+/**
+ * Wraps a Caminte model with Promises for db calls
+ * @class db
+ * @param {Object} model - the model to extend with db Promises
+ * @return db
+ */
 var db = function(model) {
 
+  /**
+   * Grab all Lists
+   * @method list
+   * @alias db.list
+   * @memberof! db
+   * @return promise
+   */
   this.list = function() {
     var promise = new Promise(function(resolve, reject) {
       model.all({}, function(err, entries) {
@@ -23,8 +36,16 @@ var db = function(model) {
     return promise;
   };
 
-  //query is an object with names:values to find
-  //data is an object with names:values to upsert, will merge with query
+  /**
+   * Description
+   * @method upsert
+   * @param {Object} query - query is an object with names:values to find
+   * @param {string} query.name - The name of a list.
+   * @param {Object} data - data is an object with items:values to upsert, will merge with query
+   * @alias db.upsert
+   * @memberof! db
+   * @return promise
+   */
   this.upsert = function(query, data) {
     var promise = new Promise(function(resolve, reject) {
       model.updateOrCreate(query, data, function(err, entry) {
@@ -42,6 +63,14 @@ var db = function(model) {
   };
 
   //query is an object with names:values to find
+  /**
+   * Description
+   * @method fetch
+   * @param {} query
+   * @alias db.fetch
+   * @memberof! db
+   * @return promise
+   */
   this.fetch = function(query) {
     var promise = new Promise(function(resolve, reject) {
       model.findOne({where: query}, function(err, entry) {
@@ -62,6 +91,14 @@ var db = function(model) {
   };
 
   //query is an object with names:values to find
+  /**
+   * Description
+   * @method delete
+   * @param {} query
+   * @alias db.delete
+   * @memberof! db
+   * @return promise
+   */
   this.delete = function(query) {
     var promise = new Promise(function(resolve, reject) {
       model.findOne({where: query}, function(err, entry) {
@@ -88,6 +125,13 @@ var db = function(model) {
     return promise;
   };
 
+  /**
+   * Description
+   * @method clear
+   * @alias db.clear
+   * @memberof! db
+   * @return promise
+   */
   this.clear = function() {
     var promise = new Promise(function(resolve, reject) {
       model.destroyAll(function(err) {
