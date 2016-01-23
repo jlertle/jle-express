@@ -5,6 +5,7 @@
   },
   "source": {
     "include": ["./", "package.json", "README.md"],
+    "exclude": ["smartcomments-template.js", "sample.config.js", "config.js"],
     "includePattern": ".js$",
     "excludePattern": "(node_modules/|docs)"
   },

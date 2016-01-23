@@ -1,0 +1,138 @@
+{
+  "env": {
+    "browser": true,
+    "mocha": true,
+    "node": true
+  },
+  "globals": {},
+  "rules": {
+    "no-bitwise": 2,
+    "camelcase": 0,
+    "curly": [
+      2,
+      "all"
+    ],
+    "eqeqeq": 2,
+    "guard-for-in": 2,
+    "no-extend-native": 2,
+    "wrap-iife": 0,
+    "no-use-before-define": 0,
+    "new-cap": 2,
+    "no-caller": 2,
+    "no-empty": 2,
+    "no-irregular-whitespace": 2,
+    "no-new": 0,
+    "no-plusplus": 0,
+    "quotes": [
+      2,
+      "single",
+      "avoid-escape"
+    ],
+    "no-undef": 2,
+    "no-unused-vars": 2,
+    "strict": 0,
+    "max-params": 0,
+    "max-depth": 0,
+    "max-statements": 0,
+    "complexity": 0,
+    "max-len": 0,
+    "no-var": 0,
+    "semi": [
+      2,
+      "always"
+    ],
+    "no-cond-assign": 0,
+    "no-debugger": 0,
+    "no-eq-null": 0,
+    "no-eval": 0,
+    "no-unused-expressions": 0,
+    "block-scoped-var": 0,
+    "no-iterator": 0,
+    "linebreak-style": 0,
+    "comma-style": [
+      2,
+      "last"
+    ],
+    "no-loop-func": 0,
+    "no-multi-str": 0,
+    "require-yield": 0,
+    "valid-typeof": 0,
+    "no-proto": 0,
+    "no-script-url": 0,
+    "no-shadow": 2,
+    "dot-notation": 2,
+    "no-new-func": 0,
+    "no-new-wrappers": 0,
+    "no-invalid-this": 0,
+    "brace-style": 2,
+    "no-multiple-empty-lines": 2,
+    "one-var": [
+      2, {
+        "uninitialized": "always",
+        "initialized": "never"
+      }
+    ],
+    "key-spacing": [
+      2, {
+        "beforeColon": false,
+        "afterColon": true
+      }
+    ],
+    "space-unary-ops": 0,
+    "semi-spacing": [
+      2, {
+        "before": false,
+        "after": true
+      }
+    ],
+    "space-before-function-paren": [
+      2,
+      "never"
+    ],
+    "space-in-parens": [
+      2,
+      "never"
+    ],
+    "no-spaced-func": 2,
+    "comma-dangle": [
+      2,
+      "always-multiline"
+    ],
+    "no-trailing-spaces": 2,
+    "newline-after-var": [
+      2,
+      "always"
+    ],
+    "operator-linebreak": [
+      2,
+      "after"
+    ],
+    "arrow-parens": 0,
+    "space-infix-ops": 2,
+    "space-return-throw-case": 0,
+    "space-after-keywords": [
+      2,
+      "always"
+    ],
+    "lines-around-comment": [
+      2, {
+        "afterBlockComment": true,
+        "afterLineComment": true
+      }
+    ],
+    "space-before-blocks": [
+      2,
+      "always"
+    ],
+    "array-bracket-spacing": [
+      2,
+      "always"
+    ],
+    "indent": [
+      2,
+      2, {
+        "SwitchCase": 1
+      }
+    ]
+  }
+}
