@@ -42,8 +42,17 @@ exports.buttonIcon = function(styles, action, icon) {
       action(e);
     }
   }, [
-    m('i.material-icons', icon),
+    m('i.material-icons', icon)
   ]);
+};
+
+exports.buttonPlain = function(label, action) {
+  return m('button', {
+    onclick: function(e) {
+      e.preventDefault();
+      action();
+    }
+  }, label);
 };
 
 exports.input = function(label, obj, prop, id, type, attr) {
@@ -58,15 +67,16 @@ exports.input = function(label, obj, prop, id, type, attr) {
       type: type,
       value: obj[prop],
       onchange: m.setValue(obj, prop)
-    }),
+    })
   ]);
 };
 
-exports.table = function (headChild, bodyChild, footChild) {
+exports.table = function(headChild, bodyChild, footChild) {
   return m('table.mdl-data-table.mdl-js-data-table.mdl-shadow--4dp', {
     config: function() {
       componentHandler.upgradeDom();
-    }, style: {
+    },
+    style: {
       margin: '16px auto',
       width: '50%'
     }
@@ -80,7 +90,6 @@ exports.table = function (headChild, bodyChild, footChild) {
     ])
   ]);
 };
-
 
 exports.tableRow = function(prop, child) {
   return m('tr', prop, child);
@@ -99,7 +108,7 @@ exports.tableCell = function(prop, child) {
 };
 
 exports.tableCellRight = function(prop, child) {
-  return m('td.mdl-data-table__cell', prop);
+  return m('td.mdl-data-table__cell', prop, child);
 };
 
 exports.linkList = function(vm) {
@@ -113,7 +122,27 @@ exports.linkList = function(vm) {
   );
 };
 
-exports.select = function (options, elParent, elID, labelText, value) {
+exports.checkbox = function(label, obj, prop) {
+  var checkboxConfig = {
+    type: 'checkbox',
+    onchange: m.toggleValue(obj, prop)
+    // class: 'hiddenInput'
+  };
+
+  if (obj[prop]) {
+    checkboxConfig.checked = prop;
+  }
+
+  return m('.field', [
+    m('label', label),
+    m('.ui.toggle.checkbox', [
+      m('input', checkboxConfig),
+      m('label', '')
+    ])
+  ]);
+};
+
+exports.select = function(options, elParent, elID, labelText, value) {
   /*
   var optionsA = ["a", "b", "c", "d"];
   makeDropDown(optionsA, 'insert-here', 'ddl1', 'Name', '');
@@ -127,18 +156,18 @@ exports.select = function (options, elParent, elID, labelText, value) {
   ddl.setAttribute('class', 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label');
 
   //if (labelText) {
-    var label = document.createElement('LABEL');
-    label.setAttribute('class', 'mdl-textfield__label');
-    label.setAttribute('for', elID); // associate button
-    label.innerHTML = labelText;
-    ddl.appendChild(label);
-	//}
+  var label = document.createElement('LABEL');
+  label.setAttribute('class', 'mdl-textfield__label');
+  label.setAttribute('for', elID); // associate button
+  label.innerHTML = labelText;
+  ddl.appendChild(label);
+  //}
 
   var input = document.createElement('INPUT');
   input.setAttribute('class', 'mdl-textfield__input');
   input.value = value;
   input.id = elID; // this is how Material Design associates option/button
-	ddl.appendChild(input);
+  ddl.appendChild(input);
 
   document.getElementById(elParent).appendChild(ddl);
 
@@ -163,7 +192,7 @@ exports.select = function (options, elParent, elID, labelText, value) {
   document.getElementById(elParent).appendChild(ul);
 };
 
-exports.cardForm = function (configFunction, title, icon, supportingChild, actionChild) {
+exports.cardForm = function(configFunction, title, icon, supportingChild, actionChild) {
   return m('.mdl-card.mdl-shadow--4dp', {
     config: function(el, isInit) {
       if (!isInit) {
@@ -178,15 +207,15 @@ exports.cardForm = function (configFunction, title, icon, supportingChild, actio
   }, [
     m('form', [
       m('.mdl-card__title', {
-          style: {
-            color: '#fff',
-            background: 'rgba(0, 0, 0, 0.2)'
-          }
-        }, [
-          m('h2.mdl-card__title-text', title),
-          m('.mdl-layout-spacer'),
-          m('i.material-icons', icon),
-        ]),
+        style: {
+          color: '#fff',
+          background: 'rgba(0, 0, 0, 0.2)'
+        }
+      }, [
+        m('h2.mdl-card__title-text', title),
+        m('.mdl-layout-spacer'),
+        m('i.material-icons', icon)
+      ]),
       m('.mdl-card__supporting-text', [
         supportingChild
       ]),
@@ -203,4 +232,72 @@ exports.cardForm = function (configFunction, title, icon, supportingChild, actio
       ])
     ])
   ]);
+};
+
+exports.linkListDragDrop = function(elSelector, vm) {
+
+  return m('.drag', {
+      config: function(el, isInited) {
+        if (isInited) {
+          return;
+        }
+        var listEl = el.querySelector(elSelector); //,
+        //instAssign = el.querySelector('.instAssign');
+        //console.log('listEl', listEl);
+        //var drake = dragula([listEl, instAssign]);
+
+        var drake = dragula([listEl]);
+        //console.log(drake);
+        drake.on('drop', function(element, target, source) {
+          var fromIndex = element.getAttribute('index');
+          //var t = target.className;
+
+          //console.log('element', element);
+          //console.log('target', target);
+          //console.log('source', source);
+
+          function findIndex(node) {
+            var i = 1;
+            while (node = node.previousSibling) {
+              if (node.nodeType === 1) {
+                ++i;
+              }
+            }
+            return i - 1;
+          }
+          var toIndex = findIndex(element);
+
+          console.log('fromIndex', fromIndex);
+          console.log('toIndex', toIndex);
+          vm.move(fromIndex, toIndex);
+
+          // if (t === 'listEl') {
+          //   // keep in mind. this is not ready.
+          //   scope.left.push(scope.right[i]);
+          //   scope.right.splice(i, 1);
+          // } else {
+          //   // keep in mind. this is not ready.
+          //   scope.right.push(scope.left[i]);
+          //   scope.left.splice(i, 1);
+          // }
+          //
+          // console.log(scope.left, scope.right);
+        });
+
+      }
+    },
+    m('nav.mdl-navigation.' + elSelector,
+      vm.store.map(function(item, index) {
+        //console.log('item', item);
+        //console.log('index', index);
+        var itemID = (typeof item._id === 'function') ? item._id() : item._id;
+        var itemName = (typeof item.name === 'function') ? item.name() : item.name;
+        //console.log(itemID, itemName);
+        return m('a.mdl-navigation__link', {
+          index: index,
+          onclick: vm.select.bind(null, itemID)
+        }, itemName);
+      })
+    )
+  );
 };

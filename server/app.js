@@ -1,6 +1,5 @@
 'use strict';
 
-
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -26,13 +25,13 @@ var ratelimit = require('ratelimit-middleware');
 var im = require('istanbul-middleware');
 var isCoverageDisabled = (process.env.NODE_ENV === 'production');
 
-//before your code is require()-ed, hook the loader for coverage
+// before your code is require()-ed, hook the loader for coverage
 if (!isCoverageDisabled) {
-    console.log('Hook loader for coverage - ensure this is not production!');
-    //console.log(path.join(__dirname, '..'));
-    im.hookLoader(path.join(__dirname, '..'));
-        // cover all files except under node_modules
-        // see API for other options
+  console.log('Hook loader for coverage - ensure this is not production!');
+  // console.log(path.join(__dirname, '..'));
+  im.hookLoader(path.join(__dirname, '..'));
+  // cover all files except under node_modules
+  // see API for other options
 }
 
 // default jade stuff
@@ -77,7 +76,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /client
-//app.use(favicon(path.join(__dirname, 'client', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'client', 'favicon.ico')));
 app.use(logger('dev'));
 
 // configure app to use bodyParser()
@@ -89,7 +88,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(cookieParser());
 app.use(express.static(pubDir));
-//app.use(express.static(covDir));
+// app.use(express.static(covDir));
 
 // default jade stuff
 // app.use('/', routes);
@@ -97,12 +96,10 @@ app.use(express.static(pubDir));
 
 // Add model to req so it's accessible in routers
 app.use(function(req, res, next) {
-  //console.log('IP', req.headers['x-forwarded-for'] || req.connection.remoteAddress);
+  // console.log('IP', req.headers['x-forwarded-for'] || req.connection.remoteAddress);
   req.model = listModel;
   next();
 });
-
-
 
 // API version routing.
 var v1 = express.Router();
@@ -135,9 +132,9 @@ app.get('/app.js', browserify(path.join(pubDir, 'js', 'app.js'), {}));
 
 // add the coverage handler
 if (!isCoverageDisabled) {
-    //enable coverage endpoints under /coverage
-    //var covDir = path.join(__dirname, '../coverage');
-    app.use('/coverage', im.createHandler());
+  // enable coverage endpoints under /coverage
+  // var covDir = path.join(__dirname, '../coverage');
+  app.use('/coverage', im.createHandler());
 }
 
 // could implement server-side parsing for initial page-load
@@ -190,7 +187,7 @@ process.on('SIGTERM', function() {
   });
 
   setTimeout(function() {
-    console.error('Could not close connections in time, forcefully shutting down');
+    console.error('Could not close connections in time, force shutdown');
     process.exit(1);
   }, 30 * 1000);
 });

@@ -22,7 +22,7 @@ var ListForm = {
       e.button('mdl-button--primary', 'Delete', args.vm.delete),
       e.button('mdl-button--primary', 'New', args.vm.new)
     ];
-    
+
     return e.cardForm(configFunction, title, icon, supportingChildren, actionChildren);
   }
 };

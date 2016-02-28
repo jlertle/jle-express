@@ -15,6 +15,9 @@
 [![Issue Count](https://codeclimate.com/github/jlertle/jle-express/badges/issue_count.svg)](https://codeclimate.com/github/jlertle/jle-express)
 [![Test Coverage](https://codeclimate.com/github/jlertle/jle-express/badges/coverage.svg)](https://codeclimate.com/github/jlertle/jle-express/coverage)
 
+[![Dependency Status](https://david-dm.org/jlertle/jle-express.svg)](https://david-dm.org/jlertle/jle-express)
+[![devDependency Status](https://david-dm.org/jlertle/jle-express/dev-status.svg)](https://david-dm.org/jlertle/jle-express#info=devDependencies)
+
 <!-- [![Build status](https://ci.appveyor.com/api/projects/status/pkey0tj2q28u6vr4?svg=true)](https://ci.appveyor.com/project/jlertle/jle-express) -->
 
 **WORK IN PROGRESS**
@@ -144,7 +147,8 @@ You'll probably also want to replace the content of "Getting Started" & "Feature
   * istanbul: https://github.com/gotwarlost/istanbul - code coverage tool
 
   * dependency-check: https://github.com/maxogden/dependency-check - checks modules used are listed in package.json
-  * rimraf: https://github.com/isaacs/rimraf - dev dependency for tests
+  * next-update: https://github.com/bahmutov/next-update - test if dependencies can be updated
+  * rimraf: https://github.com/isaacs/rimraf - an `rm -rf` util for nodejs
   * doctoc: https://github.com/thlorenz/doctoc - generates table of contents for markdown
   * jshint: https://github.com/jshint/jshint - detect errors and potential problems in JavaScript
   * jscs: https://github.com/jscs-dev/node-jscs - JavaScript Code Style checker
@@ -153,7 +157,7 @@ You'll probably also want to replace the content of "Getting Started" & "Feature
   * express-winston: https://github.com/bithavoc/express-winston - express middleware for winston
   * winston-loggly: https://github.com/winstonjs/winston-loggly - Loggly transport for winston
 
-## Inspiration
+## Inspirado
   * http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/
   * https://medium.com/javascript-scene/why-i-use-tape-instead-of-mocha-so-should-you-6aa105d8eaf4
   * https://github.com/cloverfield-tools/prod-module-boilerplate

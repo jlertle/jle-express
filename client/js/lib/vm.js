@@ -3,7 +3,14 @@
 var m = require('mithril');
 var tools = require('./tools');
 
+/**
+ * this is viewModel.
+ */
 var viewModel = function(model, url) {
+  /**
+   * @param {object} model this is the model to wrap with viewModel methods.
+   * @return {number} this is return.
+   */
   var _this = this;
 
   _this.init = function() {
