@@ -1,0 +1,12 @@
+{
+  "source": "./client",
+  "destination": "./esdoc",
+  "index": "./README2.md",
+  "excludes": ["coverage/",
+               "dist",
+               "docs/",
+               "node_modules",
+               "smartcomments-templates.js",
+               "sample.config.js",
+               "config.js"]
+}
