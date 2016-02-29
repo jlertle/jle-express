@@ -39,7 +39,7 @@ Includes a few npm `scripts` [(no gulp or grunt needed)](http://blog.keithcirkel
   - [Build your module](#build-your-module)
 - [Contributing](#contributing)
 - [Third-party libraries](#third-party-libraries)
-- [Inspiration](#inspiration)
+- [Inspirado](#inspirado)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
