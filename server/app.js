@@ -42,7 +42,25 @@ var listModel = require('./models/list');
 var listRouteV1 = require('./routes/v1/list');
 var listRouteV2 = require('./routes/v2/list');
 
-var pubDir = path.join(__dirname, '../client');
+if (process.env.CLIENT === 'react') {
+  browserify.settings({
+    'transform': [
+      ['babelify', {
+        'presets': ['es2015', 'react']
+      }]
+    ]
+  });
+} else if (process.env.CLIENT === 'polythene') {
+  browserify.settings({
+    'transform': [
+      ['babelify', {
+        'presets': ['es2015']
+      }]
+    ]
+  });
+}
+
+var pubDir = path.join(__dirname, '../client', process.env.CLIENT);
 
 var app = express();
 
