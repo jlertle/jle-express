@@ -1,6 +1,6 @@
 {
   "name": "jle-express",
-  "version": "0.1.42",
+  "version": "0.1.43",
   "private": true,
   "main": "./bin/www",
   "scripts": {
@@ -21,9 +21,9 @@
     "build": "export NODE_ENV=production && npm run build:scripts -s && npm run build:styles -s && npm run build:markup -s && npm run build:toc",
     "build:toc": "doctoc --github --title \"## Contents\" ./",
     "build-verbose": "npm run build:scripts && npm run build:styles && npm run build:markup",
-    "build:scripts": "browserify -d client/js/app.js -p [minifyify --compressPath . --map main.js.map --output dist/main.js.map] | hashmark -n dist/main.js -s -l 8 -m assets.json 'dist/{name}.{hash}{ext}'",
-    "build:styles": "stylus -u autoprefixer-stylus client/css/main.styl --include-css --compress -m -o dist/main.css && hashmark -s -l 8 -m assets.json dist/main.css 'dist/{name}.{hash}{ext}'",
-    "build:styles-compressed": "stylus -u autoprefixer-stylus client/css/main.styl --include-css --compress -m -o dist/main.css && cssmin dist/main.css > dist/main.min.css && hashmark -s -l 8 -m assets.json dist/main.min.css 'dist/{name}.{hash}{ext}'",
+    "build:scripts": "browserify -d client/mdl/js/app.js -p [minifyify --compressPath . --map main.js.map --output dist/main.js.map] | hashmark -n dist/main.js -s -l 8 -m assets.json 'dist/{name}.{hash}{ext}'",
+    "build:styles": "stylus -u autoprefixer-stylus client/mdl/css/main.styl --include-css --compress -m -o dist/main.css && hashmark -s -l 8 -m assets.json dist/main.css 'dist/{name}.{hash}{ext}'",
+    "build:styles-compressed": "stylus -u autoprefixer-stylus client/mdl/css/main.styl --include-css --compress -m -o dist/main.css && cssmin dist/main.css > dist/main.min.css && hashmark -s -l 8 -m assets.json dist/main.min.css 'dist/{name}.{hash}{ext}'",
     "build:markup": "jade server/views/index.jade --obj assets.json -o dist",
     "build:jsdocs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose",
     "build:esdocs": "esdoc -c esdoc.json",
