@@ -93,7 +93,7 @@
   "validateIndentation": 2,
   "validateParameterSeparator": ", ",
   "validateQuoteMarks": {
-    "mark": "'",
+    "mark": true,
     "escape": true,
     "ignoreJSX": true
   }

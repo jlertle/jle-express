@@ -139,8 +139,11 @@ exports.checkbox = function(label, obj, prop, id) {
     type: 'checkbox',
     //onchange: m.toggleValue(obj, prop),
     onchange: function() {
-      m.toggleValue(obj, prop)
+      m.toggleValue(obj, prop);
       var domEl = document.getElementById(id);
+      // http://stackoverflow.com/questions/31413042/toggle-material-design-lite-checkbox
+      // http://quaintous.com/2015/07/09/react-components-with-mdl/
+      // http://stackoverflow.com/questions/31413042/toggle-material-design-lite-checkbox/31419856#31419856
       var mdlComp = new MaterialCheckbox(domEl);
       mdlComp.uncheck();
 
@@ -161,7 +164,7 @@ exports.checkbox = function(label, obj, prop, id) {
 
   return m('label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect', {
     for: id
-  },[
+  }, [
     m('input.mdl-checkbox__input', checkboxConfig),
     m('span.mdl-checkbox__label', label)
   ]);
